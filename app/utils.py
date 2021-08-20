@@ -269,9 +269,10 @@ def validate_username(username, check_db=True):
     return 'OK'
 
 def validate_email(email):
-    regex = re.compile("[a-zA-Z0-9_]+@(mail\.)?ustc\.edu\.cn")
+    # REFERENCE: https://blog.csdn.net/make164492212/article/details/51656638
+    regex = re.compile(r'[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+')
     if not regex.fullmatch(email):
-        return ('必须使用科大邮箱注册!')
+        return ('此邮件地址不合法！')
     if User.query.filter_by(email=email).first():
         return ('此邮件地址已被注册！')
     return 'OK'
