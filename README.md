@@ -67,6 +67,8 @@ GRANT ALL ON icourse.* to 'ustc_course'@'localhost';
 1. ```cp tests/conf/nginx-config /etc/nginx/sites-available/default```
 2. ```sudo service mysql restart```
 
+**注意：** 若缺少相关配置文件，参考[https://gist.github.com/sanrandry/bd4350a591f62eb259e48cd9fbfcd642](https://gist.github.com/sanrandry/bd4350a591f62eb259e48cd9fbfcd642)。
+
 运行 ```./run.py```，访问 ```http://localhost``` 即可以 debug 模式开始运行此系统。
 
 如果出现问题，请首先看 ```./run.py``` 的终端有无输出，如果没有，则是 nginx 的问题，可以访问 ```http://localhost:8080``` 来测试；如果 Python 有报异常，则可根据异常信息排查。
