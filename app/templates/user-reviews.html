@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row float-element">
+
+      <div class="bm-pd-lg">
+        <div class="inline-h3">
+          <span class="blue h3"><a href="{{ url_for('user.view_profile', user_id=user.id) }}">{{ user.username }}</a> 点评</span>
+          （{{ user.reviews_count }}门）
+        </div>
+
+        {% for review in user.reviews %}
+          {% if not review.is_hidden or current_user.is_admin or current_user == user %}
+          {% if review.course %}
+        <div class="ud-pd-md dashed">
+          <div class="ud-pd-sm">
+            {% set course = review.course %}
+            <a href="{{ url_for('course.view_course', course_id=course.id) }}">{{ course.name }}（{{ course.teacher.name or _('未知') }}）</a>
+            <span class="small grey align-bottom left-pd-sm">学期：{{ review.term|term_display }}</span>
+            <span class="text-muted small float-right desktop localtime" style="display: none;">{{ review.update_time|utctime }}</span>
+          </div>
+          {% include 'review-hidden.html' %}
+          <p class="dark-grey">{{ review.content|abstract }}
+            <a href="{{ url_for('course.view_course', course_id=course.id) }}#review-{{ review.id }}"> >>{{ _('more') }}</a>
+          </p>
+        </div>
+          {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div><!-- end bm-pd-lg -->
+  </div><!-- end float-element -->
+</div><!-- end container -->
+{% endblock %}

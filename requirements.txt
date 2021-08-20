@@ -1,0 +1,23 @@
+Flask
+Flask-WTF
+Flask-SQLAlchemy
+Flask-login
+itsdangerous
+flask-mail
+lxml
+flask-script
+flask-migrate
+flask-security
+flask-mysqldb
+flask-babel
+# for debug only
+flask-debugtoolbar
+html2text
+markdown
+pytz
+# don't know why these dependencies fail...
+click
+wtforms
+pillow
+# cache lib alternative
+cachelib
