@@ -21,18 +21,6 @@ LANGUAGES = {
 SQLALCHEMY_DATABASE_URI = 'mariadb+mariadbconnector://ustc_course:ustc_course@localhost/icourse?charset=utf8'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-# Flask mail
-MAIL_SERVER = 'localhost'
-MAIL_PORT = 25
-MAIL_USE_TLS = False
-MAIL_USE_SSL = False
-MAIL_DEBUG = DEBUG
-MAIL_USERNAME = None
-MAIL_PASSWORD = None
-MAIL_DEFAULT_SENDER = 'support@icourse.club'
-MAIL_MAX_EMAILS = None
-#MAIL_SUPPRESS_SEND =
-MAIL_ASCII_ATTACHMENTS = False
 
 # Upload config
 UPLOAD_FOLDER = '/srv/ustc-course/uploads'
@@ -55,3 +43,7 @@ DEBUG_TB_PROFILER_ENABLED = True
 # Enable the template editor
 DEBUG_TB_TEMPLATE_EDITOR_ENABLED =True
 DEBUG_TB_INTERCEPT_REDIRECTS = False
+
+
+# `config/default_secret.py` will overwrite settings above
+from .default_secret import *

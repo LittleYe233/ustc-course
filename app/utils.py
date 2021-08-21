@@ -29,7 +29,7 @@ def rand_str():
 
 
 def send_confirm_mail(email):
-    subject = 'Confirm your email.'
+    subject = 'Confirm your email'
     token = ts.dumps(email, salt='email-confirm-key')
 
     confirm_url = url_for(
@@ -41,7 +41,8 @@ def send_confirm_mail(email):
             confirm_url = confirm_url)
 
     msg = Message(subject=subject, html=html, recipients=[email])
-    mail.send(msg)
+    with mail.connect() as conn:
+        conn.send(msg)
 
 def send_reset_password_mail(email):
     subject = 'Reset your password'
