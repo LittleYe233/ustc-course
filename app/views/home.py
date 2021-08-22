@@ -100,13 +100,14 @@ def signup():
         username = request.form.get('username')
         email = request.form.get('email')
         password = request.form.get('password')
+        identity = request.form.get('identity')
         user = User(username=username, email=email,password=password)
         email_suffix = email.split('@')[-1]
-        if email_suffix == 'mail.ustc.edu.cn':
+        if identity == 'student':
             user.identity = 'Student'
-        elif email_suffix == 'ustc.edu.cn':
+        elif identity == 'teacher':
             user.identity = 'Teacher'
-            ok,message = user.bind_teacher(email)
+            ok, message = user.bind_teacher(email)
             #TODO: deal with bind feedback
         else:
             #TODO: log Intenal error!

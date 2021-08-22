@@ -14,9 +14,9 @@
 
 
       <div id="regverify-email" class="form-group">
-        <label for="reginput-email" class="col-sm-2 control-label">科大邮箱</label>
+        <label for="reginput-email" class="col-sm-2 control-label">邮箱</label>
         <div class="col-sm-4">
-          <input type="email" id="reginput-email" name="email" class="form-control" placeholder="*@mail.ustc.edu.cn or *@ustc.edu.cn" onchange="regverify('email')">
+          <input type="email" id="reginput-email" name="email" class="form-control" placeholder="Email" onchange="regverify('email')">
           <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" style="display:none"></span>
           <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="display:none"></span>
           {% if form.errors.get('email') %}
@@ -26,8 +26,6 @@
           {% endif %}
         </div>
       </div>
-
-
 
       <div id="regverify-username" class="form-group">
         <label for="reginput-username" class="col-sm-2 control-label">用户名</label>
@@ -42,9 +40,6 @@
           {% endif %}
         </div>
       </div>
-
-
-
 
       <div id="regverify-password" class="form-group">
         <label for="reginput-password" class="col-sm-2 control-label">密码</label>
@@ -68,6 +63,19 @@
           <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="display:none"></span>
         </div>
       </div>
+
+    <div id="regverify-identity" class="form-group">
+        <label for="regdiv-identity" class="col-sm-2 control-label">身份</label>
+        <div class="col-sm-4" id="regdiv-identity">
+            <label for="reginput-identity-student">学生</label>
+            <input type="radio" checked="checked" name="identity" value="student" id="reginput-identity-student">
+            <label for="reginput-identity-teacher">教师</label>
+            <input type="radio" name="identity" value="teacher" id="reginput-identity-teacher">
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" style="display:none"></span>
+          <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="display:none"></span>
+        </div>
+      </div>
+
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-4">
           <button type="submit" class="btn btn-blue btn-block">注册</button>
